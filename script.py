@@ -22,7 +22,9 @@ def parse_dir(path):
     for file in os.listdir(directory):
         name, *extension = os.fsdecode(file).split(".")
         flag = "file" if extension else "directory"
-        logger.info(FILE(name, extension[0] if extension else None, flag, parent_directory))
+        logger.info(
+            FILE(name, extension[0] if extension else None, flag, parent_directory)
+        )
         if flag == "directory":
             temp_path = path + "\\" + name
             try:
@@ -35,4 +37,3 @@ try:
     parse_dir(args.path)
 except Exception:
     logger.warning("access denied: " + args.path)
-    
