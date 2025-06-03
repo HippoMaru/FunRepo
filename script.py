@@ -27,11 +27,12 @@ def parse_dir(path):
             temp_path = path + "\\" + name
             try:
                 parse_dir(temp_path)
-            except:
+            except Exception:
                 logger.warning("access denied: " + temp_path)
 
 
 try:
     parse_dir(args.path)
-except:
+except Exception:
     logger.warning("access denied: " + args.path)
+    
