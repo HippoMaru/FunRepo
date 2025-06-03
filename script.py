@@ -23,9 +23,9 @@ def parse_dir(path):
         name, *extension = os.fsdecode(file).split(".")
         flag = "file" if extension else "directory"
         logger.info(
-            FILE(name, 
-                 extension[0] if extension else None, 
-                 flag, 
+            FILE(name,
+                 extension[0] if extension else None,
+                 flag,
                  parent_directory)
         )
         if flag == "directory":
